@@ -46,7 +46,7 @@ func NewMongoStore(c *mongo.Collection, opts *sessions.Options, keyPairs ...[]by
 		collection: c,
 	}
 	ms.MaxAge(opts.MaxAge)
-	return nil
+	return ms
 }
 
 // Get returns a session for the given name after adding it to the registry.
