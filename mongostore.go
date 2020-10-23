@@ -150,7 +150,7 @@ func (s *MongoStore) save(ctx context.Context, session *sessions.Session) error 
 	}
 	opts := options.Update().SetUpsert(true)
 	update := bson.D{{Key: "$set", Value: &doc}}
-	if _, err := s.collection.UpdateOne(ctx, bson.M{"_id": session.ID}, update, opts); err != nil {
+	if _, err := s.collection.UpdateOne(ctx, bson.M{"_id": objID}, update, opts); err != nil {
 		return err
 	}
 	return nil
